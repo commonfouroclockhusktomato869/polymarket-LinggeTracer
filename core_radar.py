@@ -19,11 +19,12 @@ class PolymarketAnalyzer:
                 'https': f'http://127.0.0.1:{proxy_port}'
             })
 
-    def fetch_trades(self, wallet_address, max_pages=50):
+    # 修改 core_radar.py 中的这两个方法
+    def fetch_trades(self, wallet_address, max_pages=50, progress_callback=None):
         all_trades = []
         limit = 100
         cursor = None
-        current_endpoint = "/trades" # 直接使用 trades 接口保证稳定性
+        current_endpoint = "/trades"
 
         for page in range(1, max_pages + 1):
             url = f"{self.base_url}{current_endpoint}?user={wallet_address}&limit={limit}"
@@ -36,6 +37,10 @@ class PolymarketAnalyzer:
                     trades = data.get("data", []) if isinstance(data, dict) else data
                     if not trades: break
                     all_trades.extend(trades)
+                    
+                    # 💡 【核心新增】触发实时进度播报！
+                    if progress_callback:
+                        progress_callback(f"⏳ 正在深度挖掘链上数据...\n当前进度：第 {page} 页，已抓取 {len(all_trades)} 条记录 📥")
                     
                     if isinstance(data, dict) and data.get("next_cursor"):
                         cursor = data.get("next_cursor")
@@ -51,12 +56,22 @@ class PolymarketAnalyzer:
             
         return all_trades
 
-    def generate_ai_summary(self, wallet_address, max_pages=50):
-        """核心方法：抓取并生成供 AI 阅读的浓缩摘要"""
-        raw_trades = self.fetch_trades(wallet_address, max_pages)
+    def generate_ai_summary(self, wallet_address, max_pages=50, progress_callback=None):
+        """传递 callback"""
+        # 💡 在开始前播报一下
+        if progress_callback:
+            progress_callback(f"🔍 锁定目标钱包: {wallet_address[:8]}...\n🚀 正在连接 Polymarket 底层节点，准备抓取...")
+            
+        raw_trades = self.fetch_trades(wallet_address, max_pages, progress_callback)
+        
         if not raw_trades:
-            return f"未能抓取到钱包 {wallet_address} 的交易数据，可能是由于网络问题或该钱包无记录。"
-
+            return f"未能抓取到钱包 {wallet_address} 的交易数据。"
+            
+        # 💡 抓取完毕，通知进入 AI 分析阶段
+        if progress_callback:
+            progress_callback(f"✅ 数据抓取完毕，共 {len(raw_trades)} 条！\n🧠 正在进行高维特征降维，唤醒 AI 投研大脑进行深度分析，请稍候...")
+            
+    
         # 数据清洗
         records = []
         for t in raw_trades:
