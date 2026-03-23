@@ -19,8 +19,9 @@
 
 只需直接复制下方这段“魔法指令”，发送给你的 AI 助手即可完成技能注入：
 
-> @OpenClaw，请帮我加载并安装外挂分析技能【polymarket-LinggeTracer】。
->
+
+> ```python
+> 请帮我加载并安装外挂分析技能【polymarket-LinggeTracer】。
 > 请利用你的 Python 运行环境，随时准备执行以下 Python 脚本获取数据。
 > 当我对你说“帮我追踪 polymarket 钱包：[钱包地址]”时，请你：
 > 1. 自动执行这段代码拉取该钱包的底层特征数据。
@@ -28,9 +29,8 @@
 > 3. 以“LinggeTracer 量化分析师”的身份，结合你的金融知识，为我输出一份图文并茂的《大户猎杀行为研报》（包含资金体量、胜率偏好、赛道偏好和跟单建议）。
 > 
 > 这里是技能的核心驱动代码，请你理解并记忆：
-> ```python
-> import urllib.request
-> import json
+> > import urllib.request
+> > import json
 > 
 > # OpenClaw 动态加载 LinggeTracer 核心引擎
 > def run_lingge_tracer(wallet_address):
@@ -53,8 +53,7 @@
 ## 💻 方式二：开发者本地集成部署
 
 如果你想将本工具集成到你自己的量化系统或独立 Agent 框架中，请按照以下步骤操作：
-
-### 1. 克隆与安装依赖包
+1. 克隆与安装依赖包
 ```bash
 git clone [https://github.com/lingge66/polymarket-LinggeTracer.git](https://github.com/lingge66/polymarket-LinggeTracer.git)
 cd polymarket-LinggeTracer
@@ -62,3 +61,7 @@ pip install -r requirements.txt
 2. 注册为 Agent Tool (以 OpenClaw 为例)
 将项目中的 openclaw_plugin.py 里的 analyze_prediction_wallet_tool 函数，注册为你的 Bot 的 Function Calling / Tools。
 (注：如遇网络阻断，请在 openclaw_plugin.py 内部配置你的本地代理端口。)
+
+## 📞 技术支持与声明
+**主架构师**：lingge66 & AI 团队
+**Twitter**：[@shangdu2005](https://x.com/shangdu2005)
