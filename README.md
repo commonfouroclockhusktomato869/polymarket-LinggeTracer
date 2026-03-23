@@ -78,6 +78,5 @@ pip install -r requirements.txt
 
 最终图文并茂的千字深度投资研报！
 
-📄 许可证
-本项目采用 MIT License 开源。欢迎各类量化机构和开发者 Fork 及 PR！
+
 
