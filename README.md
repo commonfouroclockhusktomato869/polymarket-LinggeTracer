@@ -63,5 +63,21 @@ pip install -r requirements.txt
 2. 注册为 Agent Tool (以 OpenClaw 为例)
 将项目中的 openclaw_plugin.py 里的 analyze_prediction_wallet_tool 函数，注册为你的 Bot 的 Function Calling / Tools。
 (注：如遇网络阻断，请在 openclaw_plugin.py 内部配置你的本地代理端口。)
+🎮 体验魔法
+部署完成后，在对话框中直接向你的机器人下达指令：
 
+“帮我分析一下这个 Polymarket 钱包：0xbddf623A2DE3b232677943fFf82e88a38Ff0eE4E”
+
+🤖 Bot 将自动返回如下深度洞察：
+
+该大户的真实注码管理偏好（Kelly Criterion 估算）
+
+最爱重仓赛道（NBA、欧洲杯或政治大选）
+
+赔率猎杀习惯（专挑下狗 Underdog 还是求稳 Favorite）
+
+最终图文并茂的千字深度投资研报！
+
+📄 许可证
+本项目采用 MIT License 开源。欢迎各类量化机构和开发者 Fork 及 PR！
 
